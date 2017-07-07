@@ -10,6 +10,7 @@ function selectHero() {
 
 	$('.select-hero').click(function() {
 		var player = $(this).clone();
+		player.removeClass('select-hero');
 		$('#Hero').html(player);
 		$('.select-hero').off('click');
 		$(this).removeClass('select-hero');
