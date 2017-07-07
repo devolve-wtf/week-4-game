@@ -4,7 +4,8 @@
 	<title>RPG Game</title>
 
 	<!-- Bootstrap File -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -16,37 +17,48 @@
 <body>
 
 	<main class="container-fluid">
-		<h2>Hero</h2>
-		<section id="hero" class="row">
-			
-		</section>
 
-		<section id="Players" class="row">
-			<div class="player select-player col-md-3">
-				<h2> 1</h2>
-				<div class="hp">hp</div>
+		<section class="row justify-content-center">
+			<div class="col-md-6 text-center">
+				<h2>Hero</h2>
+				<div id="hero" class="row justify-content-center">
+
+				</div>
 			</div>
+			<div class="col-md-6 text-center">
+				<h2>Enemy</h2>
+				<div id="enemy" class="row justify-content-center">
 
-			<div class="player select-player col-md-3">
-				<h2> 2</h2>
-				<div class="hp">hp</div>
-			</div>
-
-			<div class="player select-player col-md-3">
-				<h2> 3</h2>
-				<div class="hp">hp</div>
-			</div>
-
-			<div class="player select-player col-md-3">
-				<h2> 4</h2>
-				<div class="hp">hp</div>
+				</div>
 			</div>
 		</section>
 
-		<h2>Enemy</h2>
-		<section id="enemy" class="row">
+		<section id="Players" class="row justify-content-center">
+			<div class="player select-player col-md-3">
+				<h2></h2>
+				<div class="hp"></div>
+			</div>
 
+			<div class="player select-player col-md-3">
+				<h2></h2>
+				<div class="hp"></div>
+			</div>
+
+			<div class="player select-player col-md-3">
+				<h2></h2>
+				<div class="hp"></div>
+			</div>
+
+			<div class="player select-player col-md-3">
+				<h2></h2>
+				<div class="hp"></div>
+			</div>
 		</section>
+
+		<!-- <h2>Enemy</h2> -->
+<!-- 		<section id="enemy" class="row">
+
+		</section> -->
 	</main>
 	<button id="attack-button" value="attack">Attack</button>
 	<span class="hero-message"></span>
