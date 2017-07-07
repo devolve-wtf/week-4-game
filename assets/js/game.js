@@ -33,11 +33,28 @@ function handlePlayerClick() {
 		$('#enemy').html($(this).clone().addClass('active-enemy'));
 		$(this).remove();
 	}
+
+}
+
+function healthPoints() {
 	
+	$('.hp').each(function(){
+		$(this).text(Math.floor(Math.random() * 200) + ' hp');
+	});
+
+}
+
+function attackPoints() {
+
+	$('.player').each(function(){
+		$(this).attr('data-attack', Math.floor(Math.random() * 75));
+	});
 }
 
 $(document).ready(function() {
-
+	healthPoints();
+	attackPoints();
 	$('.select-player').click(handlePlayerClick);
+	$('#attack-button').click()
 
 });
