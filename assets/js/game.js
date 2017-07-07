@@ -73,7 +73,6 @@ function attackClick() {
 $(document).ready(function() {
 	healthPoints();
 	attackPoints();
-	attackClick();
 	$('.select-player').click(handlePlayerClick);
 	$('#attack-button').click(attackClick);
 
