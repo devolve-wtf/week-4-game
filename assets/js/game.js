@@ -24,6 +24,14 @@
 
 // }
 
+function playerNames(array) {
+	var i = 0;
+	$('.player').each(function(){
+		$(this).attr('data-name', array[i])
+		i++;
+	});
+}
+
 function handlePlayerClick() {
 
 	if($('#hero').html() == false) {
@@ -71,6 +79,7 @@ function attackClick() {
 }
 
 $(document).ready(function() {
+	playerNames(['synaptic', 'merc', 'warfighter', 'phantom']);
 	healthPoints();
 	attackPoints();
 	$('.select-player').click(handlePlayerClick);
