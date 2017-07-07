@@ -24,22 +24,20 @@
 
 // }
 
+function handlePlayerClick() {
+
+	if($('#hero').html() == false) {
+		$('#hero').html($(this).clone().addClass('active-hero'));
+		$(this).remove();
+	} else if ($('#enemy').html() == false) {
+		$('#enemy').html($(this).clone().addClass('active-enemy'));
+		$(this).remove();
+	}
+	
+}
 
 $(document).ready(function() {
 
-
-	$('.select-player').click(function(){
-
-		if($('#hero').html() == false) {
-			$('#hero').html($(this).clone().addClass('active-hero'));
-			$(this).remove();
-		} else if ($('#enemy').html() == false) {
-			$('#enemy').html($(this).clone().addClass('active-enemy'));
-			$(this).remove();
-		}
-
-
-	});
-
+	$('.select-player').click(handlePlayerClick);
 
 });
