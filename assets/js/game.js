@@ -68,6 +68,19 @@ function attackClick() {
 		);
 	}, 500);
 
+	calculateWinner();
+
+}
+
+function calculateWinner() {
+
+	if (parseInt($('.active-hero .hp').attr('data-hp')) <= 0) {
+		alert('you lose');
+	} else if (parseInt($('.active-enemy .hp').attr('data-hp')) <= 0) {
+		alert('You beat ' + $('.active-enemy > h2').attr('data-name') + ' select another enemy!');
+		$('.active-enemy').removeClass('active-enemy');
+	}
+
 }
 
 
