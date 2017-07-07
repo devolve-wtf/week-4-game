@@ -38,7 +38,7 @@ function handlePlayerClick() {
 }
 
 function attackClick() {
-
+	attackPoints();
 	var enemyHP = parseInt($('.active-enemy .hp').attr('data-hp'));
 	var heroHP = parseInt($('.active-hero .hp').attr('data-hp'));
 	var enemyAttack = parseInt($('.active-enemy').attr('data-attack'));
@@ -88,7 +88,7 @@ $(document).ready(function() {
 
 	playerNames(['synaptic', 'merc', 'warfighter', 'phantom']);
 	healthPoints();
-	attackPoints();
+	// attackPoints();
 	$('.select-player').click(handlePlayerClick);
 	$('#attack-button').click(attackClick);
 
