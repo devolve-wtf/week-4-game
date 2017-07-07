@@ -1,10 +1,8 @@
 function playerNames(array) {
 
-	var i = 0;
-	$('.player h2').each(function(){
-		$(this).attr('data-name', array[i]);
+	$('.player h2').each(function(index){
+		$(this).attr('data-name', array[index]);
 		$(this).text($(this).attr('data-name'));
-		i++;
 	});
 
 }
