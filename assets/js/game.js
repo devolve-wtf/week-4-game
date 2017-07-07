@@ -76,9 +76,10 @@ function calculateWinner() {
 
 	if (parseInt($('.active-hero .hp').attr('data-hp')) <= 0) {
 		alert('you lose');
+		$('.active-hero').remove();
 	} else if (parseInt($('.active-enemy .hp').attr('data-hp')) <= 0) {
 		alert('You beat ' + $('.active-enemy > h2').attr('data-name') + ' select another enemy!');
-		$('.active-enemy').removeClass('active-enemy');
+		$('.active-enemy').remove();
 	}
 
 }
@@ -88,7 +89,6 @@ $(document).ready(function() {
 
 	playerNames(['synaptic', 'merc', 'warfighter', 'phantom']);
 	healthPoints();
-	// attackPoints();
 	$('.select-player').click(handlePlayerClick);
 	$('#attack-button').click(attackClick);
 
