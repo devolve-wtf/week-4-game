@@ -1,4 +1,22 @@
 .player {
-	background-color: #b6b6b6;
+	background-position: center;
+	background-size: cover;
 	min-height: 400px;
+}
+
+.player h2 {
+	background-color: #000;
+	color: #fff;
+	padding: 15px;
+	position: relative;
+	max-width: 200px;
+	text-align: center;
+}
+
+.player .hp {
+	background-color: #000;
+	color: #fff;
+	position: relative;
+	max-width: 200px;
+	text-align: center;
 }
