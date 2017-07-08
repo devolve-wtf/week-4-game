@@ -25,7 +25,7 @@ function selectHero() {
 
 function selectEnemy() {
 	$('.select-enemy').click(function() {
-		$('#WarZone').html('<button onClick="attack()">Attack</button>');
+		$('#WarZone').html('<button onClick="attack()">Attack</button><p id="Messages"><span>Click Attack To Begin</span></p>');
 		var player = $(this).clone();
 		player.removeClass('select-enemy col-md-3');
 		$('#Enemy').html(player);
@@ -51,6 +51,14 @@ function attack() {
 	enemy.hp -= heroAttack;
 	if(enemy.hp > 0) {
 		hero.hp -= enemyAttack;
+		$('#Messages span').html(hero.name + ' did ' + heroAttack + ' damage to ' + enemy.name + ', and ' + enemy.name + ' did ' + enemyAttack + ' damage to ' + hero.name);
+	}else{
+		let earnedHp = randomNumber(70,140);
+		hero.hp += earnedHp;
+		$('#Messages span').html(hero.name + ' defeated ' + enemy.name + '<br>' + 'You earned ' + earnedHp + 'hp');
+		$('#Players .player').addClass('select-enemy');
+		selectEnemy();
+
 	}
 	$('#Hero .player .hp').html(hero.hp);
 	$('#Enemy .player .hp').html(enemy.hp);
@@ -58,6 +66,7 @@ function attack() {
 		$('#' + enemy.name).remove();
 	}else if(hero.hp <= 0) {
 		$('#' + hero.name).remove();
+		$('#Messages span').html('You have been defeated by the ' + enemy.name);
 	}
 }
 

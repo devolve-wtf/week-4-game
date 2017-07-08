@@ -1,6 +1,22 @@
+body {
+	background-image: url(../images/bg.jpg);
+}
+
+#Messages span {
+	background-color: rgba(0,0,0,0.6);
+	color: #fff;
+	padding: 5px;
+}
+
+#Players {
+	margin-top: 20px;
+}
 .player {
 	background-position: center;
 	background-size: cover;
+	border: 7px solid #000;
+	border-top: 14px solid #000;
+	border-bottom: 14px solid #000;
 	min-height: 400px;
 }
 
