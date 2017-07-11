@@ -19,6 +19,7 @@ function selectHero() {
 		$(this).removeClass('select-hero');
 		$(this).remove();
 		$('.select-hero').addClass('select-enemy').removeClass('select-hero');
+		$('#Instructions').html('SELECT ENEMY TO BATTLE');
 		selectEnemy();
 	});
 }
@@ -33,6 +34,7 @@ function selectEnemy() {
 		$(this).removeClass('select-enemy');
 		$(this).remove();
 		$('.player').removeClass('select-enemy');
+		$('#Instructions').html(' ');
 	});
 }
 
@@ -99,9 +101,32 @@ merc.registerPlayer(players);
 var phantom = new Player('Phantom', randomNumber(100,200), 'assets/images/phantom.jpg');
 phantom.registerPlayer(players);
 
-//console.log(players);
 
 $(document).ready(function() {
 	buildPlayers(players);
 	selectHero();
+	$('#Instructions').blink();
 });
+
+
+//Thanks http://www.antiyes.com/jquery-blink/jquery-blink.js !!!
+(function($) {
+    $.fn.blink = function(options) {
+        var defaults = {
+            delay: 500
+        };
+        var options = $.extend(defaults, options);
+
+        return this.each(function() {
+            var obj = $(this);
+            setInterval(function() {
+                if ($(obj).css("visibility") == "visible") {
+                    $(obj).css('visibility', 'hidden');
+                }
+                else {
+                    $(obj).css('visibility', 'visible');
+                }
+            }, options.delay);
+        });
+    }
+}(jQuery)) 

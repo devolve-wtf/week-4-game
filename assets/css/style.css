@@ -1,5 +1,12 @@
 body {
 	background-image: url(../images/bg.jpg);
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#Instructions {
+	color: #fff;
+	font-size: 20px;
+	margin-top: 20px;
 }
 
 #Messages span {
@@ -10,6 +17,10 @@ body {
 
 #Players {
 	margin-top: 20px;
+}
+
+#Players .player {
+	cursor: pointer;
 }
 
 .player {
