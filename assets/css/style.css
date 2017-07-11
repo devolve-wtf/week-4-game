@@ -11,6 +11,7 @@ body {
 #Players {
 	margin-top: 20px;
 }
+
 .player {
 	background-position: center;
 	background-size: cover;
@@ -23,7 +24,9 @@ body {
 .player h2 {
 	background-color: #000;
 	color: #fff;
-	padding: 15px;
+	margin-bottom: 0;
+	padding: 5px;
+	padding-top: 0;
 	position: relative;
 	max-width: 200px;
 	text-align: center;

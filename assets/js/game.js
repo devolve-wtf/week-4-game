@@ -44,29 +44,36 @@ function buildPlayers(arr) {
 }
 
 function attack() {
-	let hero = players[$('#Hero .player').attr('data')];
-	let enemy = players[$('#Enemy .player').attr('data')];
-	let heroAttack = randomNumber(20,40);
-	let enemyAttack = randomNumber(20,40);
-	enemy.hp -= heroAttack;
-	if(enemy.hp > 0) {
-		hero.hp -= enemyAttack;
-		$('#Messages span').html(hero.name + ' did ' + heroAttack + ' damage to ' + enemy.name + ', and ' + enemy.name + ' did ' + enemyAttack + ' damage to ' + hero.name);
-	}else{
-		let earnedHp = randomNumber(70,140);
-		hero.hp += earnedHp;
-		$('#Messages span').html(hero.name + ' defeated ' + enemy.name + '<br>' + 'You earned ' + earnedHp + 'hp');
-		$('#Players .player').addClass('select-enemy');
-		selectEnemy();
+	if($('#Hero div').hasClass('player') && $('#Enemy div').hasClass('player')) {
+		let hero = players[$('#Hero .player').attr('data')];
+		let enemy = players[$('#Enemy .player').attr('data')];
+		let heroAttack = randomNumber(20,40);
+		let enemyAttack = randomNumber(20,40);
+		enemy.hp -= heroAttack;
+		if(enemy.hp > 0) {
+			hero.hp -= enemyAttack;
+			$('#Messages span').html(hero.name + ' did ' + heroAttack + ' damage to ' + enemy.name + ', and ' + enemy.name + ' did ' + enemyAttack + ' damage to ' + hero.name);
+		}else{
+			let earnedHp = randomNumber(70,140);
+			hero.hp += earnedHp;
+			$('#Players .player').addClass('select-enemy');
+			if($('#Players .player').hasClass('select-enemy')) {
+				var message = hero.name + ' defeated ' + enemy.name + '<br>' + 'You earned ' + earnedHp + 'hp <br>Select another enemy to continue playing';
+			}else{
+				var message = hero.name + ' is the champion!';
+			}
+			$('#Messages span').html(message);
+			selectEnemy();
 
-	}
-	$('#Hero .player .hp').html(hero.hp);
-	$('#Enemy .player .hp').html(enemy.hp);
-	if(enemy.hp <= 0) {
-		$('#' + enemy.name).remove();
-	}else if(hero.hp <= 0) {
-		$('#' + hero.name).remove();
-		$('#Messages span').html('You have been defeated by the ' + enemy.name);
+		}
+		$('#Hero .player .hp').html(hero.hp);
+		$('#Enemy .player .hp').html(enemy.hp);
+		if(enemy.hp <= 0) {
+			$('#' + enemy.name).remove();
+		}else if(hero.hp <= 0) {
+			$('#' + hero.name).remove();
+			$('#Messages span').html('You have been defeated by the ' + enemy.name);
+		}
 	}
 }
 
