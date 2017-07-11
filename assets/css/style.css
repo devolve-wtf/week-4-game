@@ -50,3 +50,15 @@ body {
 	max-width: 200px;
 	text-align: center;
 }
+
+strong.hero {
+	color: green;
+}
+
+strong.enemy {
+	color: red;
+}
+
+strong.winner {
+	font-size: 24px;
+}

@@ -1,3 +1,8 @@
+const laser = new Audio('assets/sounds/laser.wav');
+const damage = new Audio('assets/sounds/damage.wav');
+const lose = new Audio('assets/sounds/lose.wav');
+const win = new Audio('assets/sounds/win.wav');
+
 class Player {
 	constructor(playerName, playerHp, playerImage) {
 		this.playerName = playerName;
@@ -35,6 +40,7 @@ function selectEnemy() {
 		$(this).remove();
 		$('.player').removeClass('select-enemy');
 		$('#Instructions').html(' ');
+		$('#WarZone button').removeClass('invisible');
 	});
 }
 
@@ -54,17 +60,27 @@ function attack() {
 		enemy.hp -= heroAttack;
 		if(enemy.hp > 0) {
 			hero.hp -= enemyAttack;
-			$('#Messages span').html(hero.name + ' did ' + heroAttack + ' damage to ' + enemy.name + ', and ' + enemy.name + ' did ' + enemyAttack + ' damage to ' + hero.name);
+			$('#Messages span').html(hero.name + ' did <strong class="hero">' + heroAttack + '</strong> damage to ' + enemy.name + ', and ' + enemy.name + ' did <strong class="enemy">' + enemyAttack + '</strong> damage to ' + hero.name);
+			if(heroAttack > enemyAttack) {
+				laser.play();
+				$('strong.hero').addClass('winner');
+			}else{
+				damage.play();
+				$('strong.enemy').addClass('winner');
+			}
 		}else{
 			let earnedHp = randomNumber(70,140);
 			hero.hp += earnedHp;
 			$('#Players .player').addClass('select-enemy');
 			if($('#Players .player').hasClass('select-enemy')) {
 				var message = hero.name + ' defeated ' + enemy.name + '<br>' + 'You earned ' + earnedHp + 'hp <br>Select another enemy to continue playing';
+				laser.play();
 			}else{
 				var message = hero.name + ' is the champion!';
+				win.play();
 			}
 			$('#Messages span').html(message);
+			$('#WarZone button').addClass('invisible');
 			selectEnemy();
 
 		}
@@ -74,7 +90,10 @@ function attack() {
 			$('#' + enemy.name).remove();
 		}else if(hero.hp <= 0) {
 			$('#' + hero.name).remove();
+			lose.play();
 			$('#Messages span').html('You have been defeated by the ' + enemy.name);
+			$('#WarZone button').html('Play Again');
+			$('#WarZone button').click(function() {location.reload()});
 		}
 	}
 }
