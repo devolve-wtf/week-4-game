@@ -92,7 +92,7 @@ merc.registerPlayer(players);
 var phantom = new Player('Phantom', randomNumber(100,200), 'assets/images/phantom.jpg');
 phantom.registerPlayer(players);
 
-console.log(players);
+//console.log(players);
 
 $(document).ready(function() {
 	buildPlayers(players);
